@@ -1,25 +1,25 @@
 import logo from './logo.svg';
 import './App.css';
 
-function App() {
+function Card(props) {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <section>
+      <h2>{props.icon} Title</h2>
+      {props.children}
+    </section>
   );
 }
 
-export default App;
+function MyIcon(){
+  return <i>🔥</i>;
+}
+
+export default function App() {
+  return (
+    <div>
+      <Card icon={<MyIcon />}>
+        <p>The body of the card</p>
+      </Card>
+    </div>
+  );
+}
